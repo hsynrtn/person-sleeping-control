@@ -121,14 +121,14 @@ while True:
                     leftEAR = eye_aspect_ratio(leftEye)
                     rightEAR = eye_aspect_ratio(rightEye)
 
-                    for i in range(len(leftEye)):
+                    # for i in range(len(leftEye)):
                         # cv2.circle(frame, (leftEye[i][0], leftEye[i][1]), 2, (0, 255, 0), cv2.FILLED)
-                        cv2.putText(frame, str(i), (leftEye[i][0], leftEye[i][1]), cv2.FONT_HERSHEY_SIMPLEX,  0.4, (0, 255, 0), 2, cv2.LINE_AA)
+                        # cv2.putText(frame, str(i), (leftEye[i][0], leftEye[i][1]), cv2.FONT_HERSHEY_SIMPLEX,  0.4, (0, 255, 0), 2, cv2.LINE_AA)
                     ear = (leftEAR + rightEAR) / 2.0
                     leftEyeHull = cv2.convexHull(leftEye)
                     rightEyeHull = cv2.convexHull(rightEye)
-                    # cv2.drawContours(frame, [leftEyeHull], -1, (0, 255, 0), 1)
-                    # cv2.drawContours(frame, [rightEyeHull], -1, (0, 255, 0), 1)
+                    cv2.drawContours(frame, [leftEyeHull], -1, (0, 255, 0), 1)
+                    cv2.drawContours(frame, [rightEyeHull], -1, (0, 255, 0), 1)
                     if ear<0.25:
                         sleepFrameCount += 1
                         if sleepFrameCount > 5:
